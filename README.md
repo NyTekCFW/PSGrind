@@ -61,3 +61,8 @@ Show the address (of allocated memory) and the size allocated but not removed.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/NyTekCFW/NyTekCFW/master/assets/line.png)
 ## Showcase
+<div align="center">
+<img src="https://raw.githubusercontent.com/NyTekCFW/PSGrind/master/assets/leak_exit.png" alt="leak" width="20%">
+<img src="https://raw.githubusercontent.com/NyTekCFW/PSGrind/master/assets/massive_leak.png" alt="massive" width="20%">
+<img src="https://raw.githubusercontent.com/NyTekCFW/PSGrind/master/assets/noleak_exit.png" alt="noleak" width="20%">
+</div>
