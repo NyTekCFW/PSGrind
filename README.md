@@ -3,8 +3,7 @@ PSGrind a port of valgrind on Playstation scene
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/NyTekCFW/NyTekCFW/master/assets/line.png)
 ## About
-PSGrind is just a way to know if you have memory leaks on your playstation projects (Sprx / homebrew ...).  
-malloc and free direct function call is not supported for the moment but will be added with time (but new/delete is recommanded with cpp).  
+PSGrind is just a way to know if you have memory leaks on your playstation projects (Sprx / homebrew ...).   
 Note : This project was developed with the libsvsc.a library (a private library) that include each thing requiered to work properly, so some include can be requiered.  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/NyTekCFW/NyTekCFW/master/assets/line.png)
