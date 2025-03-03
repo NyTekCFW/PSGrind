@@ -10,17 +10,14 @@ Note : This project was developed with the libsvsc.a library (a private library)
 ## How it work
 PSGrind work by overriding new and delete operator, for the moment it work only on Playstation 3 but will be port on Playstation 4 soon.  
 PSGrind will register each alloc and his size and will remove the correct allocated memory from his list when a delete is called.  
-To work properly you need to call 'void	print_psgrind(bool print_leak_info, bool kill);' in your exit function preferably when your project is 100% unloaded like :  
+To work properly you need to call it in your exit function preferably when your project is 100% unloaded like :  
 ```cpp
 int  _exit(void)
 {
   ....//unload your mod data and alloc
-  //method to show result and not kill psgrind directly
-  print_psgrind(false, false);
+  psgrind_get().show_leak(true);//show all leaks address and size
+  psgrind_get().print();//show info summary
   printf("Unloaded\n");
-  kill_psgrind();
-  //or
-  print_psgrind(false, true);
 }
 ```
 You can do a max of 12 000 allocated memory in simultaneously.  
@@ -34,7 +31,7 @@ A way to know if you reached the limit is to see the logs viewer normaly PSGrind
 A restart of the Playstation or a restart of the game is recommended at this time, to remove each memory block lost.  
 
 ### Minor Memory Leaks (still reachable)
-When you have memory leaks as long as there is no more than 12,000 memory allocated at the same time, each "still reachable" will be automatically deleted by PSGrind when the kill function is called, so you have no risk of crash caused by too many of memory allocated not removed.  
+When you have memory leaks as long as there is no more than 12,000 memory allocated at the same time, each "still reachable" will be automatically deleted by PSGrind when you unload your sprx or leave your homebrew, so you have no risk of crash caused by too many of memory allocated not removed.  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/NyTekCFW/NyTekCFW/master/assets/line.png)
 ## Logs info
@@ -54,7 +51,7 @@ Tell you the number of allocated memory and size possibly lost
 Tell you the number of allocated memory and size not removed  
 
 ### Rerun with print_leak_info = true to see details of leaked memory
-print_psgrind(true, ...); show you the address (of allocated memory) and the size allocated but not removed.  
+psgrind_get().show_leak(true); show you the address (of allocated memory) and the size allocated but not removed.  
 
 ### Leak at:
 Show the address (of allocated memory) and the size allocated but not removed.  
